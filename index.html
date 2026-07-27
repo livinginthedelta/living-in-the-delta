@@ -3,282 +3,188 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Living in the Delta is a documentary series preserving the stories, people, history, and culture of the Mississippi Delta.">
-  <title>Living in the Delta</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Living in the Delta — documenting the people, places, history, and everyday life of the Mississippi Delta.">
+  <title>Living in the Delta | Our People. Our Places. Our Story.</title>
+  <style>
+    :root{
+      --green:#173d2d; --green2:#24543e; --cream:#f5f1e8; --gold:#bd935a;
+      --ink:#1f211d; --muted:#6e7069; --white:#fff; --line:rgba(23,61,45,.17);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    .wrap{width:min(1180px,calc(100% - 36px));margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(245,241,232,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{text-decoration:none;display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.04em}
+    .mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:var(--cream);font-family:Georgia,serif;font-size:23px}
+    nav{display:flex;gap:20px;align-items:center}
+    nav a{text-decoration:none;font-size:.92rem;font-weight:700}
+    nav a:hover{color:var(--green2)}
+    .hero{min-height:72vh;display:grid;align-items:end;position:relative;overflow:hidden;background:var(--green)}
+    .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,25,17,.92),rgba(8,25,17,.48),rgba(8,25,17,.16)),url('assets/img_3403.jpg') center/cover}
+    .hero-content{position:relative;color:white;padding:110px 0 72px;max-width:760px}
+    .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:800;color:var(--gold)}
+    h1,h2,h3{font-family:Georgia,'Times New Roman',serif}
+    h1{font-size:clamp(3.3rem,8vw,7rem);line-height:.92;margin:16px 0 22px}
+    .hero p{font-size:1.16rem;line-height:1.7;max-width:640px;color:rgba(255,255,255,.84)}
+    .btn{display:inline-block;margin-top:18px;padding:13px 19px;border-radius:999px;text-decoration:none;font-weight:800;background:var(--gold);color:#182117}
+    section{padding:82px 0}
+    .intro{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+    h2{font-size:clamp(2.25rem,5vw,4.5rem);line-height:1.02;margin:10px 0 20px;color:var(--green)}
+    .lead{font-size:1.13rem;line-height:1.75;color:#4f514b}
+    .feature-card{background:var(--green);color:white;border-radius:26px;padding:34px;box-shadow:0 22px 50px rgba(23,61,45,.18)}
+    .feature-card h3{font-size:2rem;margin:0 0 12px}
+    .feature-card p{line-height:1.7;color:rgba(255,255,255,.78)}
+    .gallery-section{background:#ebe5da}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}
+    .section-head p{max-width:550px;color:var(--muted);line-height:1.65}
+    .town-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 34px}
+    .tab{border:1px solid var(--line);background:transparent;color:var(--green);padding:12px 20px;border-radius:999px;font-weight:900;cursor:pointer;font-size:1rem}
+    .tab.active{background:var(--green);color:white}
+    .tab-panel{display:none}
+    .tab-panel.active{display:block}
+    .town-summary{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:22px}
+    .town-summary h3{font-size:2rem;margin:0;color:var(--green)}
+    .town-summary span{color:var(--muted)}
+    .photo-grid{columns:3 280px;column-gap:16px}
+    .photo{break-inside:avoid;margin:0 0 16px;position:relative;border-radius:16px;overflow:hidden;background:#d8d3c9;cursor:pointer}
+    .photo img{width:100%;transition:.35s transform,.35s filter}
+    .photo:hover img{transform:scale(1.025);filter:brightness(.85)}
+    .photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.78));color:white;opacity:0;transition:.25s}
+    .photo:hover figcaption{opacity:1}
+    .placeholder{min-height:420px;border:2px dashed rgba(23,61,45,.25);border-radius:24px;display:grid;place-items:center;text-align:center;padding:35px;background:rgba(255,255,255,.36)}
+    .placeholder h3{font-size:2.3rem;color:var(--green);margin:0 0 10px}
+    .placeholder p{max-width:560px;line-height:1.7;color:var(--muted)}
+    .cta{background:var(--green);color:white}
+    .cta-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+    .cta h2{color:white}
+    .socials{display:grid;gap:12px}
+    .socials a{border:1px solid rgba(255,255,255,.2);padding:15px 18px;border-radius:14px;text-decoration:none;font-weight:800}
+    footer{background:#10291e;color:rgba(255,255,255,.7);padding:30px 0}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .lightbox{position:fixed;inset:0;z-index:50;background:rgba(5,8,6,.92);display:none;align-items:center;justify-content:center;padding:25px}
+    .lightbox.open{display:flex}
+    .lightbox img{max-height:88vh;max-width:92vw;border-radius:10px}
+    .close{position:absolute;top:18px;right:24px;border:0;background:transparent;color:white;font-size:2.5rem;cursor:pointer}
+    @media(max-width:760px){
+      nav{display:none}.intro,.cta-grid{grid-template-columns:1fr}.hero{min-height:78vh}.section-head,.town-summary{display:block}
+      section{padding:64px 0}.photo-grid{columns:2 150px}
+    }
+    @media(max-width:480px){.photo-grid{columns:1}.hero-content{padding:90px 0 55px}}
+  </style>
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="nav-shell">
-      <a class="brand" href="#top" aria-label="Living in the Delta home">
-        <img src="logo copy .png" alt="Living in the Delta logo">
-        <span>Living in the Delta</span>
-      </a>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="mark">L</span><span>LIVING IN THE DELTA</span></a>
+    <nav><a href="#about">About</a><a href="#places">Town Galleries</a><a href="#connect">Connect</a></nav>
+  </div>
+</header>
 
-      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="site-nav">
-        <a href="#about">About</a>
-        <a href="#places">Explore</a>
-        <a href="#stories">Stories</a>
-        <a href="#crew">Crew</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-content">
+      <div class="eyebrow">A Mississippi Delta documentary project</div>
+      <h1>Our People.<br>Our Places.<br>Our Story.</h1>
+      <p>Documenting the communities, landmarks, culture, and everyday life that make the Mississippi Delta home.</p>
+      <a class="btn" href="#places">Explore the Town Galleries</a>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline poster="logo copy .png">
-        <source src="hero-video.mp4" type="video/mp4">
-      </video>
-      <div class="hero-fallback"></div>
-      <div class="hero-shade"></div>
-
-      <div class="hero-content reveal">
-        <p class="kicker">A documentary series from the Mississippi Delta</p>
-        <h1>Stories rooted in the Delta.</h1>
-        <p class="hero-copy">
-          Living in the Delta documents the people, places, traditions, and history
-          that make this region unlike anywhere else.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="#stories">Explore the Stories</a>
-          <a class="btn btn-outline" href="#crew">Meet the Crew</a>
-        </div>
+  <section id="about">
+    <div class="wrap intro">
+      <div>
+        <div class="eyebrow">The project</div>
+        <h2>Every town has a story worth preserving.</h2>
+        <p class="lead">Living in the Delta is a documentary-style media project created by Jase Herrin. Through photography, video, interviews, and community storytelling, the project highlights real people and meaningful places across the Mississippi Delta.</p>
       </div>
-
-      <a class="scroll-cue" href="#about" aria-label="Scroll to about section">
-        <span>Scroll</span>
-        <b>↓</b>
-      </a>
-    </section>
-
-    <section class="section intro-section" id="about">
-      <div class="section-shell intro-grid">
-        <div class="intro-copy reveal">
-          <p class="kicker dark">About the project</p>
-          <h2>The Delta deserves to be remembered in its own voice.</h2>
-        </div>
-<div class="intro-text reveal">
-
-   <h3>Welcome to Living in the Delta</h3>
-
-    <audio controls preload="metadata" style="width:100%; max-width:500px; margin:20px 0;">
-        <source src="intro-voice.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <p>
-        Living in the Delta is a documentary-style series focused on real communities,
-        local history, small businesses, landmarks, farms, artists, families, and the
-        everyday people who shape the Mississippi Delta.
-    </p>
-
-    <p>
-        The project begins in Cleveland, Boyle, and nearby communities, with plans to
-        expand across the region as more stories are discovered.
-    </p>
-
-</div>
-        
+      <div class="feature-card">
+        <h3>Now building the visual archive.</h3>
+        <p>This new version introduces town-based galleries so visitors can explore each community separately. Cleveland is live now, with Boyle photography coming next.</p>
       </div>
-    </section>
-
-    <section class="wide-feature reveal">
-      <div class="wide-feature-image">
-        <div class="image-label">The Mississippi Delta</div>
-      </div>
-      <div class="wide-feature-copy">
-        <p class="kicker light">Why this matters</p>
-        <h2>Preserving stories before they disappear.</h2>
-        <p>
-          Every town has a history. Every family has a story. Every road, field, church,
-          storefront, and front porch holds memories worth documenting.
-        </p>
-      </div>
-    </section>
-
-    <section class="section places-section" id="places">
-      <div class="section-shell">
-        <div class="section-heading reveal">
-          <div>
-            <p class="kicker dark">Explore the Delta</p>
-            <h2>Where the series begins</h2>
-          </div>
-          <p>Three communities. Countless stories waiting to be told.</p>
-        </div>
-
-        <div class="place-grid">
-          <a class="place-card place-cleveland reveal" href="cleveland.html">
-            <div class="place-overlay"></div>
-            <div class="place-content">
-              <span>01</span>
-              <h3>Cleveland</h3>
-              <p>Downtown, Delta State, Dockery Farms, local businesses, and community voices.</p>
-              <b>Explore Cleveland →</b>
-            </div>
-          </a>
-
-          <a class="place-card place-boyle reveal" href="boyle.html">
-            <div class="place-overlay"></div>
-            <div class="place-content">
-              <span>02</span>
-              <h3>Boyle</h3>
-              <p>Small-town life, local history, landmarks, and the people who call it home.</p>
-              <b>Explore Boyle →</b>
-            </div>
-          </a>
-
-          <article class="place-card place-ruleville reveal">
-            <div class="place-overlay"></div>
-            <div class="place-content">
-              <span>03</span>
-              <h3>Ruleville</h3>
-              <p>A future stop as the project continues growing across the Mississippi Delta.</p>
-              <b>Coming Soon</b>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section stories-section" id="stories">
-      <div class="section-shell">
-        <div class="section-heading reveal">
-          <div>
-            <p class="kicker dark">Production journal</p>
-            <h2>Stories in development</h2>
-          </div>
-          <p>A look at the themes, places, and voices shaping the first chapter of the series.</p>
-        </div>
-
-        <div class="story-grid">
-          <article class="story-card large reveal">
-            <div class="story-visual visual-one"></div>
-            <div class="story-copy">
-              <span>Feature Story</span>
-              <h3>The places that built the Delta</h3>
-              <p>Historic landmarks, neighborhoods, farms, and gathering places that continue to shape the region.</p>
-            </div>
-          </article>
-
-          <article class="story-card reveal">
-            <div class="story-visual visual-two"></div>
-            <div class="story-copy">
-              <span>Community</span>
-              <h3>Voices from home</h3>
-              <p>Personal stories from the people who know the Delta best.</p>
-            </div>
-          </article>
-
-          <article class="story-card reveal">
-            <div class="story-visual visual-three"></div>
-            <div class="story-copy">
-              <span>Culture</span>
-              <h3>Traditions that remain</h3>
-              <p>Food, music, faith, work, family, and the traditions passed down through generations.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="quote-section reveal">
-      <blockquote>
-        “The Delta is more than a place on a map. It is a collection of stories.”
-      </blockquote>
-    </section>
-
-    <section class="section crew-section" id="crew">
-      <div class="section-shell">
-        <div class="section-heading reveal">
-          <div>
-            <p class="kicker dark">Behind the camera</p>
-            <h2>Meet the crew</h2>
-          </div>
-          <p>The people helping bring Living in the Delta to life.</p>
-        </div>
-
-        <div class="crew-grid">
-          <article class="crew-card reveal">
-            <div class="crew-portrait portrait-jase">
-              <span>JH</span>
-            </div>
-            <div class="crew-info">
-              <p class="crew-number">01</p>
-              <h3>Jase Herrin</h3>
-              <p class="crew-title">Creator • Executive Producer • Director • Cinematographer • Editor</p>
-              <p>
-                Jase created Living in the Delta and oversees the project from story development
-                and interviews to filming, editing, branding, and production.
-              </p>
-            </div>
-          </article>
-
-          <article class="crew-card reverse reveal">
-            <div class="crew-portrait portrait-darrion">
-              <span>DB</span>
-            </div>
-            <div class="crew-info">
-              <p class="crew-number">02</p>
-              <h3>Darrion Brent</h3>
-              <p class="crew-title">Drone Operator I</p>
-              <p>
-                Darrion captures aerial footage of Delta landscapes, communities, landmarks,
-                farms, and waterways, helping show the region from a cinematic perspective.
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <div class="crew-cta reveal">
-          <div>
-            <p class="kicker light">Volunteer production crew</p>
-            <h3>Help us tell the Delta’s stories.</h3>
-            <p>
-              We are looking for camera operators, drone pilots, photographers, editors,
-              researchers, production assistants, historians, and other community volunteers.
-            </p>
-          </div>
-          <a class="btn btn-gold" href="join-the-crew.html" target="_blank" rel="noopener">
-            Join the Crew →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-banner" id="contact">
-      <div class="contact-shade"></div>
-      <div class="section-shell contact-content reveal">
-        <p class="kicker light">Have a story?</p>
-        <h2>Help us discover the next chapter.</h2>
-        <p>
-          We want to hear from residents, historians, small business owners, artists,
-          farmers, nonprofits, and anyone with a meaningful Delta story.
-        </p>
-        <div class="contact-links">
-          <a class="btn btn-gold" href="mailto:livinginthedelta@yahoo.com">Send Us a Story</a>
-          <a href="https://www.facebook.com/profile.php?id=61592411873003" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://www.instagram.com/livinginthedelta/" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.youtube.com/@LivingintheDelta" target="_blank" rel="noopener">YouTube</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-shell">
-      <div class="footer-brand">
-        <img src="logo copy .png" alt="">
-        <span>Living in the Delta</span>
-      </div>
-      <p>© <span id="year"></span> Living in the Delta. A Delta House Productions project.</p>
     </div>
-  </footer>
+  </section>
 
-  <script src="script.js"></script>
+  <section class="gallery-section" id="places">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">Visual journal</div><h2>Explore by town.</h2></div>
+        <p>Select a town below to view its own collection of landmarks, streets, public art, and community scenes.</p>
+      </div>
+
+      <div class="town-tabs" role="tablist" aria-label="Town galleries">
+        <button class="tab active" role="tab" aria-selected="true" data-target="cleveland">Cleveland</button>
+        <button class="tab" role="tab" aria-selected="false" data-target="boyle">Boyle</button>
+      </div>
+
+      <div class="tab-panel active" id="cleveland">
+        <div class="town-summary"><h3>Cleveland, Mississippi</h3><span>15 original photographs</span></div>
+        <div class="photo-grid">
+          <figure class="photo"><img loading="lazy" src="assets/img_3403.jpg" alt="GRAMMY Museum Mississippi exterior"><figcaption>GRAMMY Museum Mississippi</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3404.jpg" alt="Architectural view of the GRAMMY Museum Mississippi"><figcaption>GRAMMY Museum architecture</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3405.jpg" alt="Outdoor metal sculpture in Cleveland"><figcaption>Public art in Cleveland</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3406.jpg" alt="Loop-shaped outdoor sculpture"><figcaption>Sculpture garden</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3407.jpg" alt="Tree-like metal sculpture with green forms"><figcaption>Community art</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3408.jpg" alt="Red dancing figure sculpture"><figcaption>Movement in metal</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3409.jpg" alt="Abstract black and green sculpture"><figcaption>Abstract form</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3410.jpg" alt="Circular and pillar metal sculpture"><figcaption>Public sculpture</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3411.jpg" alt="Rust-colored industrial-style sculpture"><figcaption>Industrial design</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3412.jpg" alt="Silver curved outdoor sculpture"><figcaption>Silver form</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3413.jpg" alt="Large silver musical sculpture"><figcaption>Music-inspired sculpture</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3414.jpg" alt="Downtown Cleveland walking trail"><figcaption>Downtown walking trail</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3415.jpg" alt="Love Cleveland sign"><figcaption>Love Cleveland</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3416.jpg" alt="Love Cleveland sign and downtown surroundings"><figcaption>Heart of downtown</figcaption></figure>
+          <figure class="photo"><img loading="lazy" src="assets/img_3417.jpg" alt="Illinois Central caboose in Cleveland Mississippi"><figcaption>Illinois Central 9852</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="boyle">
+        <div class="town-summary"><h3>Boyle, Mississippi</h3><span>Gallery coming soon</span></div>
+        <div class="placeholder">
+          <div><h3>Boyle is the next chapter.</h3><p>This tab is ready for Boyle photographs. Add the town sign, streets, local businesses, churches, parks, fields, historic places, and everyday community scenes as they are captured.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="connect">
+    <div class="wrap cta-grid">
+      <div><div class="eyebrow">Follow the journey</div><h2>More stories are coming from across the Delta.</h2><p class="lead" style="color:rgba(255,255,255,.76)">Follow Living in the Delta for new photographs, filming updates, community features, and future episodes.</p></div>
+      <div class="socials">
+        <a href="https://www.facebook.com/profile.php?id=61592411873003" target="_blank" rel="noopener">Facebook ↗</a>
+        <a href="https://www.instagram.com/livinginthedelta/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://www.youtube.com/@LivingintheDelta" target="_blank" rel="noopener">YouTube ↗</a>
+        <a href="mailto:livinginthedelta@yahoo.com">livinginthedelta@yahoo.com</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap footer-row"><strong>Living in the Delta</strong><span>© <span id="year"></span> • Our People. Our Places. Our Story.</span></div></footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true"><button class="close" aria-label="Close image">×</button><img src="" alt=""></div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.tab-panel');
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+    panels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+    document.getElementById(tab.dataset.target).classList.add('active');
+  }));
+  const lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img');
+  document.querySelectorAll('.photo img').forEach(img => img.addEventListener('click', () => {
+    lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+  }));
+  function closeLb(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';}
+  lb.querySelector('.close').addEventListener('click', closeLb);
+  lb.addEventListener('click', e => { if(e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLb(); });
+</script>
 </body>
 </html>
