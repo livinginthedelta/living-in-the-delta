@@ -1,12 +1,19 @@
-LIVING IN THE DELTA — WEBSITE VERSION 7
+LIVING IN THE DELTA — VERSION 8
 
-Upload the contents of this folder to the root of your GitHub Pages repository:
-- index.html
-- assets folder
+This version restores the full cinematic layout and adds Town Galleries as its own website section.
 
-The Cleveland tab contains the 15 photographs supplied.
-The Boyle tab is prepared as a coming-soon gallery.
+UPLOAD TO GITHUB:
+1. Open the living-in-the-delta repository.
+2. Replace the current index.html with this index.html.
+3. Upload the complete assets folder.
+4. Commit the changes.
 
-To add Boyle photos later:
-1. Put the image files inside the assets folder.
-2. Replace the placeholder inside <div id="boyle"> with photo <figure> elements matching the Cleveland examples.
+INCLUDED:
+- Original-style dark cinematic layout
+- Hero, ticker, metrics, About, Episodes, Town Profiles
+- Featured Businesses and Meet Your Neighbor
+- Dedicated Town Galleries navigation tab and full section
+- Cleveland and Boyle gallery tabs
+- 15 Cleveland photographs
+- Newsroom, timeline, story submission, social links
+- Mobile menu, light/dark toggle, image lightbox
