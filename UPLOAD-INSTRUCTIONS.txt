@@ -1,0 +1,41 @@
+Living in the Delta — Production Paused Website
+================================================
+
+WHAT THIS IS
+------------
+This folder contains a replacement homepage for the existing
+livinginthedelta/living-in-the-delta GitHub Pages website.
+
+The new homepage clearly states that production is paused until further notice.
+
+HOW TO UPLOAD
+-------------
+1. Open your GitHub repository:
+   livinginthedelta/living-in-the-delta
+
+2. Replace the existing index.html with the index.html in this package.
+
+3. DO NOT delete your existing "assets" folder.
+   The replacement homepage uses the existing Cleveland photos:
+   assets/img_3403.jpg through assets/img_3417.jpg
+
+4. Commit the change to the main branch.
+
+5. GitHub Pages should update automatically after the commit.
+
+WHAT CHANGED
+------------
+- Large sticky "Production Paused Until Further Notice" banner
+- Main hero now prominently says production is paused
+- Dedicated production status section
+- Filming, interviews, new town coverage, and future production marked paused
+- Boyle and Ruleville labeled as future coverage paused
+- Cleveland photography retained as an archive
+- Project updates section now reflects the August 2026 pause
+- Footer permanently shows the paused status
+- No restart date is claimed or implied
+
+IMPORTANT
+---------
+If you upload this to the EXISTING repository, keep your existing assets folder.
+If you create a totally new repository, copy the existing assets folder into it too.
