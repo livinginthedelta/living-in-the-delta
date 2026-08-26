@@ -1,12 +1,14 @@
-# Living in the Delta — Version 2
+# Living in the Delta — Version 2.5
 Season 1: Cleveland + Boyle, Mississippi
 
-Files:
-- index.html
-- style.css
-- script.js
+## V2.5 updates
+- Updated the Get Involved contact button to use `livinginthedelta@yahoo.com`.
+- Removed the “Before publishing…” placeholder message.
+- Kept the V2 visual design, responsive layout, navigation, animations, and Season 1 content intact.
 
-Before publishing:
-1. Replace `hello@livinginthedelta.com` in index.html with the real project email.
-2. Replace the gallery placeholders with approved photos/video as production develops.
-3. Upload all three files to the GitHub Pages repository. No build step is required.
+## Files
+- `index.html`
+- `style.css`
+- `script.js`
+
+Upload all three website files to the GitHub Pages repository. No build step is required.
