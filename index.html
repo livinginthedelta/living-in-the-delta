@@ -1,99 +1,690 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Living in the Delta — Season 1 documents Cleveland and Boyle, Mississippi.">
-<meta name="theme-color" content="#11140f">
-<title>Living in the Delta | Season 1</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Living in the Delta | Project Archived</title>
+
+  <meta
+    name="description"
+    content="Living in the Delta was a documentary project created to preserve and share stories from the Mississippi Delta. The project is now archived."
+  >
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+    :root {
+      --black: #090909;
+      --dark: #101010;
+      --panel: #151515;
+      --border: #292929;
+      --white: #f4f1eb;
+      --gray: #a5a5a5;
+      --muted: #707070;
+      --accent: #a94b2d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ---------------- HEADER ---------------- */
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 30px 6%;
+    }
+
+    .brand {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+
+    .archive-label {
+      color: var(--gray);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: flex-end;
+
+      padding: 140px 6% 9vh;
+
+      position: relative;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.30),
+          rgba(0,0,0,.55) 45%,
+          rgba(9,9,9,.98)
+        ),
+        linear-gradient(
+          135deg,
+          #242424,
+          #080808
+        );
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 75% 20%,
+          rgba(255,255,255,.06),
+          transparent 35%
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(4rem, 10vw, 9rem);
+      line-height: .88;
+      letter-spacing: -.055em;
+
+      max-width: 1100px;
+    }
+
+    .hero-description {
+      max-width: 600px;
+
+      color: #c0c0c0;
+
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+
+      margin-top: 40px;
+    }
+
+    .scroll {
+      display: inline-block;
+
+      margin-top: 55px;
+
+      color: var(--muted);
+
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+
+    section {
+      padding: 130px 6%;
+    }
+
+    .section-number {
+      color: var(--muted);
+
+      font-size: .68rem;
+      font-weight: 600;
+
+      letter-spacing: .2em;
+      text-transform: uppercase;
+
+      margin-bottom: 45px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 80px;
+      align-items: start;
+
+      max-width: 1200px;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: .95;
+
+      letter-spacing: -.045em;
+    }
+
+    .body-copy {
+      color: var(--gray);
+
+      font-size: 1.08rem;
+
+      max-width: 590px;
+    }
+
+    .body-copy p + p {
+      margin-top: 25px;
+    }
+
+    /* ---------------- THANK YOU ---------------- */
+
+    .thank-you {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .big-quote {
+      max-width: 1000px;
+
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.5rem, 5vw, 5.5rem);
+
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+
+    .big-quote span {
+      color: var(--accent);
+    }
+
+    /* ---------------- TIMELINE ---------------- */
+
+    .archive-info {
+      max-width: 1200px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      border-top: 1px solid var(--border);
+
+      margin-top: 70px;
+    }
+
+    .archive-card {
+      padding: 35px 35px 35px 0;
+
+      border-right: 1px solid var(--border);
+    }
+
+    .archive-card + .archive-card {
+      padding-left: 35px;
+    }
+
+    .archive-card:last-child {
+      border-right: none;
+    }
+
+    .archive-card small {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: .65rem;
+      font-weight: 600;
+
+      letter-spacing: .16em;
+      text-transform: uppercase;
+
+      margin-bottom: 10px;
+    }
+
+    .archive-card strong {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+    }
+
+    /* ---------------- TAKE OVER ---------------- */
+
+    .takeover {
+      min-height: 75vh;
+
+      display: flex;
+      align-items: center;
+
+      background: var(--white);
+      color: #111;
+    }
+
+    .takeover .section-number {
+      color: #777;
+    }
+
+    .takeover .body-copy {
+      color: #555;
+    }
+
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+
+      margin-top: 35px;
+
+      padding: 17px 25px;
+
+      background: #111;
+      color: #fff;
+
+      font-size: .75rem;
+      font-weight: 700;
+
+      letter-spacing: .12em;
+      text-transform: uppercase;
+
+      transition: .25s ease;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-3px);
+      background: var(--accent);
+    }
+
+    /* ---------------- FINAL ---------------- */
+
+    .final {
+      min-height: 75vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+    }
+
+    .final-content {
+      max-width: 1000px;
+    }
+
+    .final h2 {
+      font-size: clamp(3.5rem, 8vw, 8rem);
+    }
+
+    .final p {
+      color: var(--gray);
+
+      margin-top: 30px;
+
+      font-size: 1rem;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      padding: 40px 6%;
+
+      border-top: 1px solid var(--border);
+
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+
+      color: var(--muted);
+
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* ---------------- ANIMATION ---------------- */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+
+      transition:
+        opacity .9s ease,
+        transform .9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------------- MOBILE ---------------- */
+
+    @media (max-width: 800px) {
+
+      header {
+        padding: 25px 5%;
+      }
+
+      .archive-label {
+        display: none;
+      }
+
+      .hero {
+        padding: 130px 5% 9vh;
+      }
+
+      section {
+        padding: 90px 5%;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .archive-info {
+        grid-template-columns: 1fr;
+      }
+
+      .archive-card {
+        padding: 25px 0;
+
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .archive-card + .archive-card {
+        padding-left: 0;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+  </style>
 </head>
+
 <body>
-<div class="grain"></div>
-<header class="header">
-<a class="brand" href="#home"><span class="mark">LITD</span><span><b>LIVING IN THE DELTA</b><small>SEASON ONE · CLEVELAND + BOYLE</small></span></a>
-<button class="menu" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
-<nav>
-<a href="#project">The Project</a><a href="#season">Season 1</a><a href="#stories">Stories</a><a href="#gallery">Gallery</a><a href="#involved" class="nav-cta">Get Involved</a>
-</nav>
-</header>
 
-<main>
-<section class="hero" id="home">
-<div class="hero-bg"></div><div class="hero-shade"></div>
-<div class="hero-content">
-<p class="eyebrow">A DOCUMENTARY SERIES · MISSISSIPPI DELTA</p>
-<h1>Two towns.<br><em>One Delta.</em></h1>
-<p class="lead">The stories of Cleveland and Boyle, Mississippi.</p>
-<div class="actions"><a class="btn light" href="#season">Explore Season 1 <span>↓</span></a><a class="text-link" href="#involved">Tell us your story →</a></div>
-</div>
-<div class="scroll">SCROLL TO EXPLORE ↓</div>
-</section>
+  <!-- HEADER -->
 
-<section class="section" id="project">
-<div class="label">01 / THE PROJECT</div>
-<div class="two-col">
-<div><p class="kicker">THE DELTA HAS STORIES TO TELL.</p><h2>We're here<br><em>to listen.</em></h2></div>
-<div class="copy"><p>Living in the Delta is a documentary project centered on the people, places, history, culture, challenges, and everyday life that shape Mississippi Delta communities.</p><p>Season 1 keeps the lens close to home, focusing exclusively on <strong>Cleveland and Boyle, Mississippi.</strong></p><p class="muted">This project is currently in development and is being built through the stories and voices of the communities themselves.</p></div>
-</div>
-</section>
+  <header>
+    <a href="#" class="brand">
+      LITD / LIVING IN THE DELTA
+    </a>
 
-<section class="section" id="season">
-<div class="label">02 / SEASON ONE</div>
-<div class="section-head two-col"><div><p class="kicker">CLEVELAND + BOYLE</p><h2>Two communities.<br><em>Countless stories.</em></h2></div><p class="muted">Season 1 is intentionally focused. Instead of trying to tell the story of the entire Delta at once, we're going deeper into two communities.</p></div>
-<div class="towns">
-<article class="town cleveland"><span class="number">01</span><div><small>BOLIVAR COUNTY</small><h3>Cleveland</h3><p>The people, history, businesses, culture, schools, neighborhoods, and future that make Cleveland home.</p><a href="#involved">Contribute a story →</a></div></article>
-<article class="town boyle"><span class="number">02</span><div><small>BOLIVAR COUNTY</small><h3>Boyle</h3><p>A closer look at small-town life, local history, agriculture, families, businesses, and the future of Boyle.</p><a href="#involved">Contribute a story →</a></div></article>
-</div>
-</section>
+    <div class="archive-label">
+      Project Archive · 2026
+    </div>
+  </header>
 
-<section class="dark">
-<div class="section">
-<p class="kicker">WHAT WE'RE DOCUMENTING</p><h2>People. Places.<br><em>Memory. Future.</em></h2>
-<div class="focus">
-<div><span>01</span><h4>The People</h4><p>The voices and experiences of the people who call Cleveland and Boyle home.</p></div>
-<div><span>02</span><h4>The Places</h4><p>Businesses, landmarks, neighborhoods, farms, streets, and gathering places.</p></div>
-<div><span>03</span><h4>The History</h4><p>Memories and knowledge that help explain where these communities came from.</p></div>
-<div><span>04</span><h4>The Future</h4><p>The people, ideas, and changes shaping what comes next.</p></div>
-</div>
-</div>
-</section>
 
-<section class="section" id="stories">
-<div class="label">03 / STORIES</div>
-<div class="section-head two-col"><div><p class="kicker">CURRENTLY IN DEVELOPMENT</p><h2>Whose story<br><em>should we hear?</em></h2></div><p class="muted">We're building Season 1 with the community. Right now, we're specifically seeking historians and storytellers connected to Cleveland or Boyle.</p></div>
-<div class="story-grid">
-<article><span>01</span><h3>Historians</h3><p>People with knowledge of Cleveland or Boyle history, archives, landmarks, organizations, or important community events.</p><a href="#involved">I can help →</a></article>
-<article class="featured"><span>02</span><h3>Storytellers</h3><p>People with memories, personal experiences, family stories, or perspectives that help tell the story of either community.</p><a href="#involved">I have a story →</a></article>
-</div>
-</section>
+  <!-- HERO -->
 
-<section class="quote"><div>“</div><blockquote>The Delta isn't just a place on a map.<br><em>It's the people who make it home.</em></blockquote></section>
+  <main>
 
-<section class="section" id="gallery">
-<div class="label">04 / GALLERY</div>
-<div class="section-head two-col"><div><p class="kicker">THE DELTA THROUGH THE LENS</p><h2>Coming<br><em>soon.</em></h2></div><p class="muted">The gallery will grow as Season 1 develops — from behind-the-scenes moments to photographs of Cleveland, Boyle, and the people who make these communities special.</p></div>
-<div class="gallery"><div class="photo wide">PHOTO / VIDEO<br>COMING SOON</div><div class="photo">CLEVELAND<br>COMING SOON</div><div class="photo">BOYLE<br>COMING SOON</div></div>
-</section>
+    <section class="hero">
 
-<section class="involved" id="involved">
-<div class="section">
-<div class="label">05 / GET INVOLVED</div>
-<div class="two-col"><div><p class="kicker">CURRENT CALL</p><h2>Help us tell<br><em>the story.</em></h2></div>
-<div class="copy"><p><strong>We're currently only looking for historians and storytellers.</strong></p><p>If you have knowledge, memories, experiences, photographs, or stories connected to Cleveland or Boyle, we'd love to hear from you.</p><a class="btn light" href="mailto:livinginthedelta@yahoo.com?subject=Living%20in%20the%20Delta%20%E2%80%94%20Season%201">Contact the Project →</a></div></div>
-</div>
-</section>
+      <div class="hero-content">
 
-<section class="section" id="about">
-<div class="label">06 / ABOUT</div>
-<div class="two-col"><div><p class="kicker">THE PROJECT</p><h2>Living in<br><em>the Delta.</em></h2></div><div class="copy"><p>Living in the Delta is a documentary project created to preserve and share stories from the Mississippi Delta. Season 1 focuses exclusively on Cleveland and Boyle.</p><p class="muted">A production of <strong>Delta House Productions.</strong></p></div></div>
-</section>
-</main>
+        <div class="eyebrow">
+          A Mississippi Delta Documentary Project
+        </div>
 
-<footer><div class="footer-top"><div><b>LIVING IN THE DELTA</b><p>Season One · Cleveland + Boyle, Mississippi</p></div><div class="footer-links"><a href="#project">The Project</a><a href="#season">Season 1</a><a href="#stories">Stories</a><a href="#involved">Get Involved</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> Living in the Delta</span><span>A Delta House Productions project</span></div></footer>
-<script src="script.js"></script>
+        <h1>
+          This project<br>
+          has ended.
+        </h1>
+
+        <p class="hero-description">
+          Living in the Delta was created with the goal of documenting
+          the people, places, history, and stories of Mississippi Delta
+          communities. The project is no longer in development.
+        </p>
+
+        <a href="#closing" class="scroll">
+          Read the final message ↓
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- CLOSING MESSAGE -->
+
+    <section id="closing">
+
+      <div class="section-number reveal">
+        01 / THE FINAL MESSAGE
+      </div>
+
+      <div class="section-grid">
+
+        <h2 class="reveal">
+          The story<br>
+          ends here.
+        </h2>
+
+        <div class="body-copy reveal">
+
+          <p>
+            Living in the Delta has officially come to an end.
+          </p>
+
+          <p>
+            Although the project never reached the filming or interview
+            stage, I want to sincerely thank everyone who followed the
+            project, sent messages, shared ideas, engaged with our posts,
+            and showed support along the way.
+          </p>
+
+          <p>
+            The project may not have reached the point I originally
+            imagined, but I'm grateful for everyone who showed interest
+            in seeing the stories of the Mississippi Delta documented.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- THANK YOU -->
+
+    <section class="thank-you">
+
+      <div class="section-number reveal">
+        02 / THANK YOU
+      </div>
+
+      <div class="big-quote reveal">
+        To everyone who followed, messaged,
+        engaged, encouraged, and believed in the idea —
+        <span>thank you.</span>
+      </div>
+
+      <div class="archive-info reveal">
+
+        <div class="archive-card">
+          <small>Project</small>
+          <strong>Living in the Delta</strong>
+        </div>
+
+        <div class="archive-card">
+          <small>Original Focus</small>
+          <strong>Cleveland + Boyle</strong>
+        </div>
+
+        <div class="archive-card">
+          <small>Status</small>
+          <strong>Archived</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TAKE OVER -->
+
+    <section class="takeover">
+
+      <div>
+
+        <div class="section-number reveal">
+          03 / THE IDEA CAN CONTINUE
+        </div>
+
+        <div class="section-grid">
+
+          <h2 class="reveal">
+            Want to<br>
+            take it over?
+          </h2>
+
+          <div class="body-copy reveal">
+
+            <p>
+              While my time with Living in the Delta has ended,
+              the idea doesn't necessarily have to.
+            </p>
+
+            <p>
+              If you're genuinely interested in taking over
+              Living in the Delta and continuing the project,
+              you're welcome to reach out.
+            </p>
+
+            <p>
+              Send a direct message to the Living in the Delta
+              Facebook page to express your interest.
+            </p>
+
+            <!-- Replace # with the Facebook page URL if desired -->
+            <a
+              href="https://www.facebook.com/livinginthedelta"
+              class="contact-button"
+            >
+              Message the Facebook Page →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL GOODBYE -->
+
+    <section class="final">
+
+      <div class="final-content reveal">
+
+        <div class="eyebrow">
+          Living in the Delta · 2026
+        </div>
+
+        <h2>
+          Thank you,<br>
+          Mississippi Delta.
+        </h2>
+
+        <p>
+          The project is closed, but the stories of the Delta continue.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div>
+      © 2026 Living in the Delta
+    </div>
+
+    <div>
+      Project Archived · No Longer in Production
+    </div>
+
+  </footer>
+
+
+  <!-- SCROLL ANIMATIONS -->
+
+  <script>
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.15
+        }
+      );
+
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+  </script>
+
 </body>
 </html>
